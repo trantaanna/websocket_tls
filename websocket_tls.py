@@ -46,8 +46,8 @@ class Application(tornado.web.Application):
 
 
 if __name__ == '__main__':
+    # ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     ssl_ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-    #ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     ssl_ctx.load_cert_chain("server.cert",
                             "server.key")
 
@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     #server.listen(8888, address="0.0.0.0")
     server.listen(8888)
-    #app.listen(8888)
+    #ws_app.listen(8888)
 
     print("server started...")
     tornado.ioloop.IOLoop.instance().start()
